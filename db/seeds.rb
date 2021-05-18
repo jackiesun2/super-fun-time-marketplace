@@ -8,22 +8,44 @@
 
 # Create 4 users
 
-userHost = User.create(email: "userhost@email.com", password: "password")
-userHost2 = User.create(email: "userhost2@email.com", password: "password")
-userGuest = User.create(email: "userguest@email.com", password: "password")
-userGuest2 = User.create(email: "userguest2@email.com", password: "password")
+puts "Destroy old records"
+
+Profile.destroy_all
+User.destroy_all
+Listing.destroy_all
+
+puts "I am creating Users"
+
+user_host = User.create(email: "userhost@email.com", password: "password")
+user_guest = User.create(email: "userguest@email.com", password: "password")
+user_guest2 = User.create(email: "user2guest@email.com", password: "password")
 
 # Create 2 profiles
 
-Profile.create(first_name: "John", last_name: "Mathew", description: "I am a good host", user: userHost)
-# Profile.create(first_name: "Mary", last_name: "Eli", description: "Looking to go camping", user: userGuest)
+puts "I am creating Profiles"
+
+Profile.create(first_name: "John", last_name: "Hoe", description: "I am a good host", user: user_host)
+Profile.create(first_name: "Mary", last_name: "Eli", description: "Looking to go camping", user_id: user_guest.id)
+Profile.create(first_name: "Henry", last_name: "Forrest", description: "I like water", user_id: user_guest2.id)
 
 # Create a listing
 
-# listing1 = Listing.create(title: "3-day snow trip", description: "It will be a gewd time in the snow", location: "Mount Buller", user: userHost)
+puts "I am creating Listings"
+
+listing_host = Listing.create(title: "3-day snow trip", description: "It will be a gewd time in the snow", location: "Mount Buller", user_id: user_host.id)
+user_host.listing.create(title: "2-day Wilson Prom", description: "For all beach lovers", location: "Wilson Prom")
+user_host.listing.create(title: "3-day hunting", description: "It's going to be a tough one", location: "Moroko")
+user_host.listing.create(title: "5-day snowboard trip", description: "shredding", location: "Mount Hotham")
+user_host.listing.create(title: "2-day mountain biking", description: "bumpy one", location: "Mount Buller")
+user_host.listing.create(title: "4-day Scuba diving trip", description: "I like turtles", location: "Fiji")
 
 # Create a booking
 
-# booking1 = Booking.create(user: userGuest, listing: listing1)
+puts "I am creating Bookings"
+
+booking1 = Booking.create(user_id: user_guest.id, listing: listing_host)
 
 # Reviews
+
+Review.create(title: "Good Host", description: "I had a good time", reviewer_id: user_guest.id, reviewee_id: user_host.id)
+Review.create(title: "Had a great time", description: "John took me fishing, it was rad", reviewer_id: user_guest2.id, reviewee_id: user_host.id)

@@ -1,9 +1,9 @@
 class User < ApplicationRecord
-  has_many :review_me, class_name: 'Review', foreign_key: "reviewee_id"
-  has_many :review_other, class_name: 'Review', foreign_key: "reviewer_id"
-  has_many :listing
-  has_many :booking
-  has_one :profile 
+  has_many :review_me, class_name: 'Review', foreign_key: "reviewee_id", dependent: :destroy
+  has_many :review_other, class_name: 'Review', foreign_key: "reviewer_id", dependent: :destroy
+  has_many :listing, dependent: :destroy
+  has_many :booking, dependent: :destroy
+  has_one :profile, dependent: :destroy
 
 
   # Include default devise modules. Others available are:
