@@ -11,5 +11,7 @@
     <%= form.text_area :description%>
     <%= form.label :location%>
     <%= form.text_field :location%>
+    <%= form.label :images%>
+    <%= form.file_field :images, accept: 'image/png, image/jpeg, image/jpg' %>
     <%= form.submit%>
 <% end %>

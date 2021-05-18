@@ -1,2 +1,3 @@
 <h1> <%= @listing.title%> </h1>
 <p> <%= @listing.description%> </p>
+<%= @listing.images.attached? ? (image_tag @listing.images.first , alt: 'image') : (image_tag 'doggo_image.jpg', alt: 'default-image')%>
