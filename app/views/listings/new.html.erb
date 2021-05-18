@@ -1,2 +1,15 @@
-<h1>Listings#new</h1>
-<p>Find me in app/views/listings/new.html.erb</p>
+<h1>Create a new listing</h1>
+
+<% @listing.errors.full_messages.each do |message| %>
+    <li> <%= message %> </li>
+<% end %>
+
+<%= form_with model: @listing do |form| %>
+    <%= form.label :title%>
+    <%= form.text_field :title%>
+    <%= form.label :description%>
+    <%= form.text_area :description%>
+    <%= form.label :location%>
+    <%= form.text_field :location%>
+    <%= form.submit%>
+<% end %>

@@ -1,2 +1,10 @@
-<h1>Listings#index</h1>
+<h1>Super Fun Times</h1>
+<ul>
+<% @listings.each do |listing|  %>
+    <li> <%= listing.title%> </li>
+    <li> <%= link_to "Show me more!", listing_path(listing) %> </li>
+<% end %>
+</ul>
+
+<%= link_to "Add a new listing", new_listing_path %>
 <p>Find me in app/views/listings/index.html.erb</p>
