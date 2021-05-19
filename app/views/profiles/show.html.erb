@@ -1,12 +1,10 @@
 <h1> <%= @profile.first_name %> </h1>
-<p> <%= @profile.description %> </p>
+<h4> <%= @profile.description %> </h4>
 
-<% @profile.user.review.each do |review|%>
+<% @profile.user.review_me.each do |review|%>
     <div class="review-card">
-        <h2> <%= review.user.profile.first_name %> </h2>
-        <h3> <%= review.title%> </h3> 
+        <h2> <%= review.reviewer.profile.first_name %> </h2>
+        <h6> <%= review.title %> </h6> 
         <p> <%= review.description %> </p>
     </div>
 <% end %>
-
-
