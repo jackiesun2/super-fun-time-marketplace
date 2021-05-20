@@ -1,9 +1,10 @@
 class User < ApplicationRecord
-  has_many :review_me, class_name: 'Review', foreign_key: "reviewee_id", dependent: :destroy
-  has_many :review_other, class_name: 'Review', foreign_key: "reviewer_id", dependent: :destroy
+  has_many :reviewee, class_name: 'Review', foreign_key: "reviewee_id", dependent: :destroy
+  has_many :reviewer, class_name: 'Review', foreign_key: "reviewer_id", dependent: :destroy
   has_many :listing, dependent: :destroy
   has_many :booking, dependent: :destroy
   has_one :profile, dependent: :destroy
+  accepts_nested_attributes_for :profile
 
 
   # Include default devise modules. Others available are:

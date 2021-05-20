@@ -1,0 +1,10 @@
+<h1>Reviews#new</h1>
+<p>Find me in app/views/reviews/new.html.erb</p>
+
+<%= form_with model: @review, url: profile_reviews_path do |form| %>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+    <%= form.submit %>
+<% end %>

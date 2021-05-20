@@ -1,10 +1,16 @@
 <h1> <%= @profile.first_name %> </h1>
 <h4> <%= @profile.description %> </h4>
 
-<% @profile.user.review_me.each do |review|%>
+<% @profile.user.reviewee.each do |review|%>
     <div class="review-card">
         <h2> <%= review.reviewer.profile.first_name %> </h2>
         <h6> <%= review.title %> </h6> 
         <p> <%= review.description %> </p>
     </div>
+<% end %>
+
+<% if user_signed_in? %>
+    <% if current_user.id != @profile.user.id%>
+        <a> <%= link_to "Add a review", new_profile_review_path(@profile), class: "btn btn-primary" %> </a>
+    <% end %>
 <% end %>

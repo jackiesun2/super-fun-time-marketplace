@@ -1,4 +1,14 @@
 <h1> <%= @listing.title%> </h1>
 <p> <%= @listing.description%> </p>
 <%= @listing.images.attached? ? (image_tag @listing.images.first , alt: 'image') : (image_tag 'doggo_image.jpg', alt: 'default-image')%>
-<%= link_to "Profile1" , profile_path(@listing.user.profile)%>
+
+<%= link_to "Profile1", profile_path(@listing.user.profile)%>
+
+<h2> Posted by: <%= @listing.user.profile.first_name %> <%= time_ago_in_words(@listing.created_at) %> ago </h2> 
+ 
+
+<% if user_signed_in? %>
+    <% if current_user.id == @listing.user.id%>
+        <%= link_to "Edit", edit_listing_path(@listing) %>
+    <% end %>
+<% end %>

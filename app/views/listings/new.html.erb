@@ -1,17 +1,3 @@
 <h1>Create a new listing</h1>
 
-<% @listing.errors.full_messages.each do |message| %>
-    <li> <%= message %> </li>
-<% end %>
-
-<%= form_with model: @listing do |form| %>
-    <%= form.label :title%>
-    <%= form.text_field :title%>
-    <%= form.label :description%>
-    <%= form.text_area :description%>
-    <%= form.label :location%>
-    <%= form.text_field :location%>
-    <%= form.label :images%>
-    <%= form.file_field :images, accept: 'image/png, image/jpeg, image/jpg' %>
-    <%= form.submit%>
-<% end %>
+<%= render 'form', listing: @listing %>
