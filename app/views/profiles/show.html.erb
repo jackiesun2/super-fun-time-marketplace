@@ -11,6 +11,8 @@
 
 <% if user_signed_in? %>
     <% if current_user.id != @profile.user.id%>
-        <a> <%= link_to "Add a review", new_profile_review_path(@profile), class: "btn btn-primary" %> </a>
+        <%= link_to "Add a review", new_profile_review_path(@profile), class: "btn btn-primary" %>
+    <% else %>
+        <%= link_to "Edit Profile", edit_profile_path(@profile) %>
     <% end %>
 <% end %>

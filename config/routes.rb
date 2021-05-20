@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   resources :profiles do
     resources :reviews
   end
-  resources :reviews
+  resources :reviews, only: [:new]
 end

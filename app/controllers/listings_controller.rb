@@ -1,7 +1,7 @@
 class ListingsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
-  before_action :set_listing, only: [:show, :edit, :update]
-  before_action :authorize_edit, only: [:edit, :update]
+  before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_user, only: [:edit, :update, :destroy]
 
   def index
     @listings = Listing.all
@@ -34,6 +34,12 @@ class ListingsController < ApplicationController
     end
   end
 
+  def destroy
+    @listing.destroy 
+    flash[:alert] = "Successfully Deleted Listing"
+    redirect_to listings_path
+  end
+
   private 
 
   def listing_params
@@ -44,7 +50,7 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
   end
 
-  def authorize_edit
+  def authorize_user
     @listing = current_user.listing.find_by_id(params[:id])
     return if @listing
     flash[:alert] = "You cannot edit unless you created the listing"

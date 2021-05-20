@@ -1,2 +1,18 @@
 <h1>Profiles#edit</h1>
 <p>Find me in app/views/profiles/edit.html.erb</p>
+
+<%= form_with model: @profile do |form| %>
+<div class="form-content">
+    <%= form.label :first_name%>
+    <%= form.text_field :first_name%>
+</div>
+<div class="form-content">
+    <%= form.label :last_name%>
+    <%= form.text_field :last_name%>
+</div>
+<div class="form-content">
+    <%= form.label :description%>
+    <%= form.text_area :description%>
+</div>
+<%= form.submit %>
+<% end %>
