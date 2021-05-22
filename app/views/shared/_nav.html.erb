@@ -1,19 +1,16 @@
-<nav class="navbar navbar-light bg-light">
-  <div class="container-fluid">
-  <div>
-    <a class="navbar-brand" href="#">
-       <%= link_to "Super Fun Time", root_path, class: 'nav-link active'%>  
-    </a>
+<nav class="nav-container">
+  <div class="nav-middle-container">
+    <div class="nav-inner-container first">
+      <a class="navbar-brand"> <%= link_to "Super Fun Time", root_path, class: 'nav-link active'%> </a>   
     </div>
-    <div>
-    <% if user_signed_in? %>
-    <%= link_to current_user.profile.first_name, profile_path(current_user.profile)%>
-    <a> <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-primary" %> </a>
-    <% else %>
-    <a> <%= link_to 'Sign In', new_user_session_path, class: "btn btn-primary" %> </a>
-    <a> <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-primary" %> </a>
-    <% end %>
+    <div class="nav-inner-container second">
+      <% if user_signed_in? %>
+        <%= link_to current_user.profile.first_name, profile_path(current_user.profile)%>
+        <a class="nav-buttons"> <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-primary" %> </a>
+      <% else %>
+        <a class="nav-buttons"> <%= link_to 'Sign In', new_user_session_path, class: "btn btn-primary" %> </a>
+        <a class="nav-buttons"> <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-primary" %> </a>
+      <% end %>
     </div>
-
-  </div>
+  </div>  
 </nav>

@@ -1,3 +1,22 @@
 // Place all the styles related to the listings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import "../base/mixins.scss";
+
+.out-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.mid-container {
+  //   background-color: red;
+  background-image: url(/assets/background-banner.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 1000px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}

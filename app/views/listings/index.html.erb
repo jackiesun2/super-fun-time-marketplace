@@ -1,10 +1,17 @@
-<h1>Super Fun Time</h1>
-<ul>
-<% @listings.each do |listing|  %>
-    <li> <%= listing.title%> </li>
-    <li> <%= link_to "Show me more!", listing_path(listing) %> </li>
-<% end %>
-</ul>
+<div class="out-container">
+    <div class="mid-container">
+        <h1 class="heading">Experiences curated for you <br> by you</h1>
+        <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>
+    </div>
+    <main class="experience-container">
+        <ul>
+            <% @listings.each do |listing|  %>
+                <li> <%= listing.title%> </li>
+                <li> <%= link_to "Show me more!", listing_path(listing) %> </li>
+            <% end %>
+        </ul>
+    </main>
+</div>
 
 <%= link_to "Add a new listing", new_listing_path %>
 
