@@ -5,8 +5,10 @@
 <body>
     <div class="out-container">
         <div class="center left">
-            <h2 class="listing-title"> <%= @listing.title%> </h2>
-            <%= @listing.images.attached? ? (image_tag @listing.images.first , alt: 'image', class: "listing-image") : (image_tag 'doggo_image.jpg', alt: 'default-image', class: "listing-image")%>
+            <div class="listing-profile">
+                <h2 class="listing-title"> <%= @listing.title%> </h2>
+                <%= @listing.images.attached? ? (image_tag @listing.images.first , alt: 'image', class: "listing-image") : (image_tag 'doggo_image.jpg', alt: 'default-image', class: "listing-image")%>
+            </div>
             <div class="listing-content">
                 <%= link_to "Host by: #{@listing.user.profile.first_name}", profile_path(@listing.user.profile), class: "profile-link"%>
                 <p class="profile-describe"> <%= @listing.description%> </p>

@@ -1,30 +1,32 @@
 .center.left {
   width: 60%;
-  height: 800px;
   display: flex;
   flex-direction: column;
 }
 
 .center.right {
   width: 40%;
-  height: 800px;
 }
 
 .listing-image {
   height: 500px;
   width: 700px;
   border-radius: 15px;
-  align-self: center;
+}
+
+.listing-title {
+  margin-bottom: 40px;
+}
+
+.listing-profile {
+  max-width: 700px;
+  margin: 40px 0px 0px 80px;
 }
 
 .listing-content {
   align-self: flex-start;
   max-width: 700px;
   margin: 20px 0px 0px 80px;
-}
-
-.listing-title {
-  margin: 40px 80px;
 }
 
 .profile-link {
@@ -69,93 +71,54 @@
     height: 400px;
     width: 600px;
   }
-
-  .listing-content {
-    margin: 0px 0px 0px 70px;
-  }
-
-  .listing-title {
-    margin: 40px 70px;
-  }
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1150px) {
   #map {
-    width: 300px;
+    width: 250px;
     height: 400px;
   }
 
   .listing-image {
     height: 300px;
-    width: 500px;
-  }
-
-  .listing-content {
-    margin: 0px 0px 0px 50px;
-  }
-
-  .listing-title {
-    margin: 40px 50px;
-  }
-}
-
-@media only screen and (max-width: 1100px) {
-  .listing-content {
-    margin: 0px 0px 0px 40px;
-  }
-
-  .listing-title {
-    margin: 40px 40px;
-  }
-}
-
-@media only screen and (max-width: 900px) {
-  .out-container {
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .listing-content {
-    max-width: 70%;
-    margin: 0px 80px;
-  }
-
-  .listing-title {
-    margin: 30px 80px;
-    max-width: 70%;
-  }
-
-  #map {
-    max-width: 70%;
-    height: 400px;
-  }
-
-  .listing-image {
-    height: 300px;
-    max-width: 70%;
+    width: 400px;
   }
 }
 
 @media only screen and (max-width: 800px) {
-  .center.right {
-    margin-top: 100px;
+  #map {
+    width: 200px;
+    height: 400px;
+  }
+
+  .listing-image {
+    height: 300px;
+    width: 300px;
   }
 }
 
-@media only screen and (max-width: 700px) {
-  .center.right {
-    margin-top: 200px;
+@media only screen and (max-width: 650px) {
+  .out-container {
+    flex-direction: column;
+    justify-content: space-between;
   }
-}
-@media only screen and (max-width: 600px) {
-  .center.right {
-    margin-top: 380px;
-  }
-}
 
-@media only screen and (max-width: 500px) {
+  .center.left {
+    max-width: 100%;
+  }
+
   .center.right {
-    margin-top: 550px;
+    margin-left: 80px;
+    max-width: 100%;
+  }
+
+  #map {
+    width: 400px;
+    height: 400px;
+  }
+
+  .listing-image {
+    width: 400px;
+    height: 300px;
   }
 }
