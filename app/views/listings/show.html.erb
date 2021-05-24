@@ -1,15 +1,36 @@
-<h1> <%= @listing.title%> </h1>
-<p> <%= @listing.description%> </p>
-<%= @listing.images.attached? ? (image_tag @listing.images.first , alt: 'image') : (image_tag 'doggo_image.jpg', alt: 'default-image')%>
+<head>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+    <div class="out-container">
+        <div class="center left">
+            <h2 class="listing-title"> <%= @listing.title%> </h2>
+            <%= @listing.images.attached? ? (image_tag @listing.images.first , alt: 'image', class: "listing-image") : (image_tag 'doggo_image.jpg', alt: 'default-image')%>
+            <div class="listing-content">
+                <%= link_to "Meet Bobby", profile_path(@listing.user.profile), class: "profile-link"%>
+                <p class="profile-describe"> <%= @listing.description%> </p>
+                <strong><p> Posted by: <%= @listing.user.profile.first_name %> <%= time_ago_in_words(@listing.created_at) %> ago </p> </strong>
+            </div>
+        </div>
+        <div class="center right">
+            <h4 class="map-title">Find location on map: </h4>
+            <div id='map'></div>
+        </div>
+    </div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiamFja2llc3VuMiIsImEiOiJja3AyMTVpcTkwd29tMnRwcXZ4YmMydWpwIn0.vLZ735NwjnAfRsko2dCaaQ';
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11'
+        });
+    </script>
+</body>
 
-<%= link_to "Profile1", profile_path(@listing.user.profile)%>
 
-<h2> Posted by: <%= @listing.user.profile.first_name %> <%= time_ago_in_words(@listing.created_at) %> ago </h2> 
- 
-
-<% if user_signed_in? %>
-    <% if current_user.id == @listing.user.id%>
-        <%= link_to "Edit", edit_listing_path(@listing) %>
-        <%= link_to "Delete", listing_path, method: :delete, data: {confirm: "Are you sure you want to delete this?"} %>
-    <% end %>
-<% end %>
+<%# if user_signed_in? %>
+    <%# if current_user.id == @listing.user.id%>
+        <%# link_to "Edit", edit_listing_path(@listing) %>
+        <%# link_to "Delete", listing_path, method: :delete, data: {confirm: "Are you sure you want to delete this?"} %>
+    <%# end %>
+<%# end %>

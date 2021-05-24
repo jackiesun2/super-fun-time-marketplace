@@ -1,4 +1,4 @@
-.out-container-profile {
+.out-container {
   display: flex;
   flex-direction: row;
   max-width: 100%;
@@ -12,6 +12,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+}
+
+.middle.right {
+  max-width: 40%;
+  margin-top: 200px;
+  display: flex;
+  flex-direction: column;
 }
 
 .profile-pic {
@@ -34,13 +41,6 @@
 .edit-button {
   align-self: flex-start;
   margin-left: 130px;
-}
-
-.middle.right {
-  height: 800px;
-  max-width: 40%;
-  display: flex;
-  flex-direction: column;
 }
 
 .profile-review {

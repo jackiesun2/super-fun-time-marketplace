@@ -1,0 +1,46 @@
+.center.left {
+  width: 60%;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+}
+
+.center.right {
+  width: 40%;
+  height: 800px;
+}
+
+.listing-image {
+  height: 500px;
+  width: 700px;
+  border-radius: 15px;
+  align-self: center;
+}
+
+.listing-content {
+  align-self: flex-start;
+  max-width: 700px;
+  margin: 20px 0px 0px 80px;
+}
+
+.listing-title {
+  margin: 40px 80px;
+}
+
+.profile-link {
+  font-size: 30px;
+}
+
+.profile-describe {
+  margin-top: 10px;
+}
+
+.map-title {
+  margin: 45px 0px;
+}
+
+#map {
+  width: 500px;
+  height: 700px;
+  border-radius: 15px;
+}
