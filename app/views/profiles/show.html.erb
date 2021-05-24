@@ -2,16 +2,16 @@
     <body>
     <div class="out-container">
         <div class="middle left">
-            <%= @profile.images.attached? ? (image_tag @profile.images , alt: 'image', class: "profile-pic") : (image_tag 'default-profile.jpeg', alt: 'default-image', class: "profile-pic") %>
             <div class="profile-content">
-                <h1> Hi there! I'm <%= @profile.first_name %> </h1>
+                <%= @profile.images.attached? ? (image_tag @profile.images , alt: 'image', class: "profile-pic") : (image_tag 'default-profile.jpeg', alt: 'default-image', class: "profile-pic") %>
+                <h1 class="profile-title"> Hi there! I'm <%= @profile.first_name %> </h1>
                 <p class="profile-description"> <%= @profile.description %> </p>
+                <% if user_signed_in? %>
+                    <% if current_user.id == @profile.user.id%>
+                        <%= link_to "Edit Profile", edit_profile_path(@profile), class: "edit-button btn btn-primary" %>
+                    <% end %>
+                <% end %>
             </div>
-            <% if user_signed_in? %>
-            <% if current_user.id == @profile.user.id%>
-                <%= link_to "Edit Profile", edit_profile_path(@profile), class: "edit-button btn btn-primary" %>
-            <% end %>
-        <% end %>
         </div>
         <div class="middle right">
             <h2 class="profile-review">Reviews</h2>
