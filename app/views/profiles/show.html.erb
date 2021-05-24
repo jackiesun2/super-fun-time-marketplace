@@ -1,18 +1,33 @@
-<h1> <%= @profile.first_name %> </h1>
-<h4> <%= @profile.description %> </h4>
-
-<% @profile.user.reviewee.each do |review|%>
-    <div class="review-card">
-        <h2> <%= review.reviewer.profile.first_name %> </h2>
-        <h6> <%= review.title %> </h6> 
-        <p> <%= review.description %> </p>
-    </div>
-<% end %>
-
-<% if user_signed_in? %>
-    <% if current_user.id != @profile.user.id%>
-        <%= link_to "Add a review", new_profile_review_path(@profile), class: "btn btn-primary" %>
-    <% else %>
-        <%= link_to "Edit Profile", edit_profile_path(@profile) %>
+<div class="out-container-profile">
+    <div class="middle left">
+        <%= image_tag @profile.images , alt: 'image', class: "profile-pic" %>
+        <div class="profile-content">
+            <h1> Hi there! I'm <%= @profile.first_name %> </h1>
+            <p class="profile-description"> <%= @profile.description %> </p>
+        </div>
+        <% if user_signed_in? %>
+        <% if current_user.id == @profile.user.id%>
+            <%= link_to "Edit Profile", edit_profile_path(@profile), class: "edit-button btn btn-primary" %>
+        <% end %>
     <% end %>
-<% end %>
+    </div>
+    <div class="middle right">
+        <h2 class="profile-review">Reviews</h2>
+        <% @profile.user.reviewee.each do |review|%>
+            <div class="review-card">
+                <h4 class="review-name"> <%= review.reviewer.profile.first_name %> </h4>
+                <h6 class="review-title"> <%= review.title %> </h6> 
+                <p class="review-content"> <%= review.description %> </p>
+                <h6 class="review-time"> Created: 4 days ago</h6>
+            </div>
+        <% end %>
+        <% if user_signed_in? %>
+            <% if current_user.id != @profile.user.id%>
+                <%= link_to "Add a review", new_profile_review_path(@profile), class: "review-button btn btn-primary" %>
+            <% end %>
+        <% end %>
+    </div>
+</div>
+
+
+

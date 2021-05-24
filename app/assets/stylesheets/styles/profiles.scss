@@ -1,3 +1,83 @@
-// Place all the styles related to the profiles controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.out-container-profile {
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+  max-height: 2000px;
+}
+
+.middle.left {
+  height: 800px;
+  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.profile-pic {
+  height: 500px;
+  max-width: 600px;
+  margin-top: 80px;
+  border-radius: 15px;
+}
+
+.profile-content {
+  align-self: flex-start;
+  max-width: 600px;
+  margin: 20px 0px 0px 130px;
+}
+
+.profile-description {
+  margin-top: 20px;
+}
+
+.edit-button {
+  align-self: flex-start;
+  margin-left: 130px;
+}
+
+.middle.right {
+  height: 800px;
+  max-width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-review {
+  margin-top: 70px;
+}
+
+.review-card {
+  max-height: 450px;
+  max-width: 500px;
+  border-radius: 15px;
+  margin-top: 20px;
+  background-color: seashell;
+}
+
+.review-name {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.review-title {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.review-content {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.review-time {
+  margin: 20px 0px;
+  margin-left: 20px;
+}
+
+.review-button {
+  max-width: 500px;
+  max-height: 100px;
+  margin: 20px 0px;
+  border-radius: 15px;
+}
