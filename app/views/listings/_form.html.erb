@@ -2,22 +2,28 @@
     <li> <%= message %> </li>
 <% end %>
 
-<%= form_with model: listing do |form| %>
-<div class="form-content">
-    <%= form.label :title%>
-    <%= form.text_field :title%>
-</div>
-<div class="form-content">
-    <%= form.label :description%>
-    <%= form.text_area :description%>
-</div>
-<div class="form-content">
-    <%= form.label :location%>
-    <%= form.text_field :location%>
-</div>
-<div class="form-content">
-    <%= form.label :images%>
-    <%= form.file_field :images, accept: 'image/png, image/jpeg, image/jpg' %>
-</div>
-<%= form.submit %>
-<% end %>
+    <%= form_with model: listing do |form| %>
+    <div class="form-content">
+        <%= form.label :title%>
+        <br>
+        <%= form.text_field :title%>
+    </div>
+    <div class="form-content">
+        <%= form.label :description%>
+        <br>
+        <%= form.text_area :description%>
+    </div>
+    <div class="form-content">
+        <%= form.label :location%>
+        <br>
+        <%= form.text_field :location%>
+    </div>
+    <div class="form-content images">
+        <%= form.label :images%>
+        <br>
+        <%= form.file_field :images, accept: 'image/png, image/jpeg, image/jpg' %>
+    </div>
+    <div class="form-content submit">
+        <%= form.submit %>
+    </div>
+    <% end %>

@@ -1,4 +1,8 @@
-<h1> <%= @listing.title%> </h1>
-<p>Find me in app/views/listings/edit.html.erb</p>
-
-<%= render 'form', listing: @listing %>
+<body>
+    <div class="form-page-container">
+        <div class="form-container">
+            <h1 class="form-heading"> <%= @listing.title%> </h1>
+            <%= render 'form', listing: @listing %>
+        </div>
+    </div>
+</body>

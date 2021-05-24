@@ -1,3 +1,6 @@
+<style>
+  .add-new-listing { margin-right: 15px; }
+</style>
 <nav class="nav-container">
   <div class="nav-middle-container">
     <div class="nav-inner-container first">
@@ -5,6 +8,7 @@
     </div>
     <div class="nav-inner-container second">
       <% if user_signed_in? %>
+        <%= link_to "New Listing", new_listing_path, class: "add-new-listing"%>
         <%= link_to current_user.profile.first_name, profile_path(current_user.profile)%>
         <a class="nav-buttons"> <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-primary" %> </a>
       <% else %>
@@ -14,7 +18,3 @@
     </div>
   </div>  
 </nav>
-
-    <%# <div class="add-listing">  %>
-        <%# link_to "Add a new listing", new_listing_path %>
-    <%# </div> %>
