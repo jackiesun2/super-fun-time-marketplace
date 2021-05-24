@@ -2,7 +2,7 @@
     <body>
     <div class="out-container">
         <div class="middle left">
-            <%= image_tag @profile.images , alt: 'image', class: "profile-pic" %>
+            <%= @profile.images.attached? ? (image_tag @profile.images , alt: 'image', class: "profile-pic") : (image_tag 'default-profile.jpeg', alt: 'default-image', class: "profile-pic") %>
             <div class="profile-content">
                 <h1> Hi there! I'm <%= @profile.first_name %> </h1>
                 <p class="profile-description"> <%= @profile.description %> </p>

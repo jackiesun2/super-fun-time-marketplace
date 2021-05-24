@@ -6,11 +6,19 @@
     <div class="out-container">
         <div class="center left">
             <h2 class="listing-title"> <%= @listing.title%> </h2>
-            <%= @listing.images.attached? ? (image_tag @listing.images.first , alt: 'image', class: "listing-image") : (image_tag 'doggo_image.jpg', alt: 'default-image')%>
+            <%= @listing.images.attached? ? (image_tag @listing.images.first , alt: 'image', class: "listing-image") : (image_tag 'doggo_image.jpg', alt: 'default-image', class: "listing-image")%>
             <div class="listing-content">
-                <%= link_to "Meet Bobby", profile_path(@listing.user.profile), class: "profile-link"%>
+                <%= link_to "Meet #{@listing.user.profile.first_name}", profile_path(@listing.user.profile), class: "profile-link"%>
                 <p class="profile-describe"> <%= @listing.description%> </p>
                 <strong><p> Posted by: <%= @listing.user.profile.first_name %> <%= time_ago_in_words(@listing.created_at) %> ago </p> </strong>
+            </div>
+            <div class="customise-listing">
+                <% if user_signed_in? %>
+                    <% if current_user.id == @listing.user.id%>
+                        <%= link_to "Edit", edit_listing_path(@listing), class: "edit-button-listing btn btn-primary" %>
+                        <%= link_to "Delete", listing_path, method: :delete, data: {confirm: "Are you sure you want to delete this?"}, class: "delete-button-listing btn btn-primary" %>
+                    <% end %>
+                <% end %>
             </div>
         </div>
         <div class="center right">
@@ -26,11 +34,3 @@
         });
     </script>
 </body>
-
-
-<%# if user_signed_in? %>
-    <%# if current_user.id == @listing.user.id%>
-        <%# link_to "Edit", edit_listing_path(@listing) %>
-        <%# link_to "Delete", listing_path, method: :delete, data: {confirm: "Are you sure you want to delete this?"} %>
-    <%# end %>
-<%# end %>
