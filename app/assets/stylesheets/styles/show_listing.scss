@@ -1,3 +1,5 @@
+// parent container
+
 .center.left {
   width: 60%;
   display: flex;
@@ -7,6 +9,8 @@
 .center.right {
   width: 40%;
 }
+
+// listing
 
 .listing-image {
   height: 500px;
@@ -37,16 +41,6 @@
   margin-top: 10px;
 }
 
-.map-title {
-  margin: 45px 0px;
-}
-
-#map {
-  width: 500px;
-  height: 700px;
-  border-radius: 15px;
-}
-
 .customise-listing {
   display: flex;
   flex-direction: row;
@@ -60,6 +54,20 @@
 .delete-button-listing {
   width: 100px;
 }
+
+// map
+
+.map-title {
+  margin: 45px 0px;
+}
+
+#map {
+  width: 500px;
+  height: 700px;
+  border-radius: 15px;
+}
+
+// media queries
 
 @media only screen and (max-width: 1300px) {
   #map {
@@ -108,17 +116,32 @@
   }
 
   .center.right {
-    margin-left: 80px;
     max-width: 100%;
+    align-self: center;
+    margin-right: 120px;
+  }
+
+  .listing-profile {
+    margin-left: 0px;
+  }
+
+  .listing-content {
+    margin-left: 0px;
+  }
+
+  .listing-image {
+    width: 400px;
+    height: 300px;
   }
 
   #map {
     width: 400px;
     height: 400px;
   }
+}
 
-  .listing-image {
-    width: 400px;
-    height: 300px;
+@media only screen and (max-width: 450px) {
+  .center.right {
+    margin-right: 80px;
   }
 }
