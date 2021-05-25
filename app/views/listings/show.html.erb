@@ -32,11 +32,12 @@
             </div>
         </div>
         <div class="center right">
-            <h4 class="map-title">Find location on map: </h4> 
+            <h4 class="map-title"> Where you'll be: </h4> 
             <% if @listing.longitude.nil? %>
-                <% <h3>Not found</h3> %>
+                 <h3>Location unavailable</h3> 
+                 <h4>Host needs to update location</h4>
             <% else%>
-                <div id='map' style='width: 400px; height: 300px;'></div>
+                <div id='map'></div>
             <% end %>
             <% if user_signed_in? %> 
                 <% unless current_user.id == @listing.user.id%>

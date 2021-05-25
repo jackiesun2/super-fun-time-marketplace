@@ -1,20 +1,22 @@
-<div class="form-page-container">
+<body>
     <div class="form-container">
         <h1>Review</h1>
-        <%= form_with model: @review, url: profile_reviews_path do |form| %>
-            <div class="form-content">
+       <%= form_with model: @review, url: profile_reviews_path do |form| %>
+            <div class="form-group">
                 <%= form.label :title %>
-                <br>
-                <%= form.text_field :title %>
+                <%= form.text_field :title, class: "form-control" %>
             </div>
-            <div class="form-content">
+            <div class="form-group">
                 <%= form.label :description %>
-                <br>
-                <%= form.text_area :description %>
+                <%= form.text_area :description, class: "form-control" %>
             </div>
-            <div class="form-content submit">
-                <%= form.submit %>
-            </div>
+            <br>
+                <%= form.submit :class => 'btn btn-primary btn-block'%>
         <% end %>
     </div>
-</div>
+</body>
+
+
+
+
+
