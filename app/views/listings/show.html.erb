@@ -14,6 +14,14 @@
                 <p class="profile-describe"> <%= @listing.description%> </p>
                 <strong><p> Posted by: <%= @listing.user.profile.first_name %> <%= time_ago_in_words(@listing.created_at) %> ago </p> </strong>
             </div>
+            <div class="bookings">
+                <h4>Attendees: </h4>
+                <% @listing.bookings.each do |booking|%>
+                    <div class="booking-user-container">
+                        <h6> <%= booking.user.profile.first_name %> </h6>
+                    </div>
+                <% end %>
+            </div>
             <div class="customise-listing">
                 <% if user_signed_in? %>
                     <% if current_user.id == @listing.user.id%>
@@ -25,14 +33,27 @@
         </div>
         <div class="center right">
             <h4 class="map-title">Find location on map: </h4>
-            <div id='map'></div>
+            <% if @listing.longitude.nil? %>
+            <h3>Not found</h3>
+            <% else%>
+            <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=10&markers=#{@listing.latitude}%2C#{@listing.longitude}&key=#{Rails.application.credentials.dig(:gmaps, :api_key)}", id: "map" %>
+            <% end %>
+            <% if user_signed_in? %> 
+                <% unless current_user.id == @listing.user.id%>
+                    <% if Booking.find_by(listing: @listing, user: current_user) %>
+                        <%= link_to "I can't go anymore", listing_booking_path(@listing), method: :delete, class: "review-button btn btn-primary"%>
+                    <% else %>
+                        <%= link_to "Click here to attend", listing_bookings_path(@listing), method: :post, class: "review-button btn btn-primary"%>
+                    <% end %>
+                <% end%>
+            <% end %>
         </div>
     </div>
     <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoiamFja2llc3VuMiIsImEiOiJja3AyMTVpcTkwd29tMnRwcXZ4YmMydWpwIn0.vLZ735NwjnAfRsko2dCaaQ';
-        var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11'
-        });
+        // var map = new mapboxgl.Map({
+        // container: 'map',
+        // style: 'mapbox://styles/mapbox/streets-v11'
+        // });
     </script>
 </body>

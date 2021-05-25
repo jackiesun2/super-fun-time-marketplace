@@ -33,6 +33,12 @@
   margin: 20px 0px 0px 80px;
 }
 
+.bookings {
+  align-self: flex-start;
+  max-width: 700px;
+  margin: 20px 0px 0px 80px;
+}
+
 .profile-link {
   font-size: 30px;
 }
@@ -70,11 +76,6 @@
 // media queries
 
 @media only screen and (max-width: 1300px) {
-  #map {
-    width: 400px;
-    height: 500px;
-  }
-
   .listing-image {
     height: 400px;
     width: 600px;
@@ -83,8 +84,8 @@
 
 @media only screen and (max-width: 1150px) {
   #map {
-    width: 250px;
-    height: 400px;
+    width: 400px;
+    height: 500px;
   }
 
   .listing-image {
@@ -95,7 +96,7 @@
 
 @media only screen and (max-width: 800px) {
   #map {
-    width: 200px;
+    width: 300px;
     height: 400px;
   }
 

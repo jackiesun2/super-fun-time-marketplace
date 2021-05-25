@@ -26,6 +26,10 @@ gem 'devise'
 #Gem CanCanCan
 gem 'cancancan'
 
+#geocoder 
+gem 'geocoder'
+
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
