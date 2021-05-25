@@ -32,11 +32,11 @@
             </div>
         </div>
         <div class="center right">
-            <h4 class="map-title">Find location on map: </h4>
+            <h4 class="map-title">Find location on map: </h4> 
             <% if @listing.longitude.nil? %>
-            <h3>Not found</h3>
+                <% <h3>Not found</h3> %>
             <% else%>
-            <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=10&markers=#{@listing.latitude}%2C#{@listing.longitude}&key=#{Rails.application.credentials.dig(:gmaps, :api_key)}", id: "map" %>
+                <div id='map' style='width: 400px; height: 300px;'></div>
             <% end %>
             <% if user_signed_in? %> 
                 <% unless current_user.id == @listing.user.id%>
@@ -50,10 +50,17 @@
         </div>
     </div>
     <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoiamFja2llc3VuMiIsImEiOiJja3AyMTVpcTkwd29tMnRwcXZ4YmMydWpwIn0.vLZ735NwjnAfRsko2dCaaQ';
-        // var map = new mapboxgl.Map({
-        // container: 'map',
-        // style: 'mapbox://styles/mapbox/streets-v11'
-        // });
+        mapboxgl.accessToken = "<%= Rails.application.credentials.dig(:mapbox, :api_key) %>";
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [<%= @listing.longitude%>, <%=@listing.latitude%>],
+        zoom: 14
+        });
+        const lng = <%= @listing.longitude%>
+        console.log(lng)
+        var marker = new mapboxgl.Marker()
+        .setLngLat([<%= @listing.longitude%>, <%=@listing.latitude%>])
+        .addTo(map);
     </script>
 </body>
