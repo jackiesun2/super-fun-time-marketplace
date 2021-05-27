@@ -20,7 +20,23 @@ The target user for this marketplace fall between the age range of 18 - 35. It's
 
 ### Application Screenshots
 
-### Technology Stack
+#### Home Page:
+
+![home-page](docs/home-screenshot.png)
+
+#### Listing Page:
+
+![listing-page](docs/listing-screenshot.png)
+
+#### Profile Page:
+
+![profile-page](docs/profile-screenshot.png)
+
+#### Create Listing Page:
+
+![create-listing-page](docs/create-listing-screenshot.png)
+
+### Technology Stack:
 
 - HTML
 - CSS
