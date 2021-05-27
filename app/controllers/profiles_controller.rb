@@ -29,9 +29,10 @@ class ProfilesController < ApplicationController
   end
 
 # Finds the profile using the params to find the id of profile
+# Eager loads the reviews made by the reviewers
 
   def set_profile
-    @profile = Profile.find(params[:id])
+    @profile = Profile.includes(user: {reviewee: {reviewer: [:profile]}}).find(params[:id])
   end
 
 # Checks the current user has the same id as the user that created the profile

@@ -11,7 +11,7 @@
         <div class="middle bottom">
             <% @listings.each do |listing|  %>
                 <div class="card-container"> 
-                    <%= image_tag "doggo_image.jpg" , alt: 'image', class: "card-image" %>
+                    <%= listing.images.attached? ? (image_tag listing.images.first , alt: 'image', class: "card-image") : (image_tag 'doggo_image.jpg', alt: 'default-image', class: "card-image")%>
                     <h3 class="card-title"> <%= listing.title %> </h3>
                     <h5 class="card-location"> <%= listing.location%> </h5>
                     <%= link_to "More", listing_path(listing), class: "card-show" %>

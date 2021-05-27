@@ -4,9 +4,10 @@ class ListingsController < ApplicationController
   before_action :authorize_user, only: [:edit, :update, :destroy]
 
 # Queries listing model to find all listings and stores all listings in an instance variable
+# Eager loads all the images on the listing page at once rather one at a time through a iterator loop
 
   def index
-    @listings = Listing.all
+    @listings = Listing.all.with_attached_images
   end
 
 # Intializes a listing instance variable and starts a new listing   
