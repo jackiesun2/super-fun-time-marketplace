@@ -25,7 +25,6 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 #Gem CanCanCan
 gem 'cancancan'
-
 #geocoder 
 gem 'geocoder'
 
